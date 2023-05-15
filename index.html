@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shopping List</title>
+        <link rel="stylesheet" href="style.css" />
+        <script
+            src="https://kit.fontawesome.com/621dec77d6.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <img src="images/groceries.png" alt="Logo" id="logo" />
+                <h1>Shopping List</h1>
+            </header>
+            <form>
+                <input
+                    id="input"
+                    type="text"
+                    placeholder="e.g. 1 sack of rice"
+                />
+                <small class="error-text hidden"></small>
+                <button>
+                    <i class="fas fa-plus"></i>
+                    Add Item
+                </button>
+            </form>
+            <input type="text" id="search" placeholder="Search" />
+            <ul class="list">
+                <!-- <li class="item">
+                    1 sack of rice
+                    <i class="fas fa-trash"></i>
+                </li>
+                <li class="item">
+                    1 kl sugar
+                    <i class="fas fa-trash"></i>
+                </li> -->
+            </ul>
+            <button id="clear-all">Clear All</button>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
