@@ -67,6 +67,7 @@ const saveToLocalStorage = (value) => {
 
     createListItem(value);
     input.value = "";
+    checkUI();
 }
 
 const isItemExists = (value) => {
@@ -92,6 +93,8 @@ const displayItems = () => {
     itemsFromLocalStorage.forEach(item => {
         createListItem(item);
     });
+
+    checkUI();
 }
 
 const onClickList = (e) => {
@@ -107,6 +110,7 @@ const onClickList = (e) => {
 const removeItem = (item) => {
     removeFromLocalStorage(item.parentElement.textContent);
     item.parentElement.remove();
+    checkUI();
 }
 
 const removeFromLocalStorage = (itemToRemove) => {
@@ -141,6 +145,8 @@ const clearAll = () => {
         while (ul.firstElementChild) {
             ul.removeChild(ul.firstElementChild);
         }
+
+        checkUI();
     }
 }
 
@@ -157,8 +163,20 @@ const filterItems = (e) => {
     });
 }
 
+const checkUI = () => {
+    if (document.querySelectorAll("li").length > 0) {
+        searchInput.style.display = "block";
+        clearBtn.style.display = "inline-block";
+    } else {
+        searchInput.style.display = "none";
+        clearBtn.style.display = "none";
+    }
+}
+
 form.addEventListener("submit", onSubmit);
 document.addEventListener("DOMContentLoaded", displayItems);
 ul.addEventListener("click", onClickList);
 clearBtn.addEventListener("click", clearAll);
 searchInput.addEventListener("input", filterItems);
+
+checkUI();
